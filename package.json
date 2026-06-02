@@ -1,0 +1,21 @@
+{
+  "name": "chaoxing-signin",
+  "version": "5.0.0",
+  "private": true,
+  "description": "超星学习通签到工具",
+  "scripts": {
+    "build:sign": "cd packages/chaoxing-core && node scripts/build.js",
+    "build": "pnpm build:sign",
+    "start": "node start.js",
+    "start:all": "node start-all.js",
+    "monitor": "node monitor.js",
+    "qqbot": "node qqbot.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@9.15.4"
+}

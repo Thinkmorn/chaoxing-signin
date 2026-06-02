@@ -1,0 +1,14 @@
+node_modules/
+.pnpm-store/
+.env
+**/env.json
+**/configs/storage.json
+**/storage.json
+temp-qr-cache-*.json
+*.log
+.claude/
+napcat/
+lagrange-bridge/
+*.sig
+qrcode.png
+packages/napcat-*/*.bak
