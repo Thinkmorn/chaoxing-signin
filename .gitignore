@@ -11,5 +11,9 @@ napcat/
 lagrange-bridge/
 *.sig
 qrcode.png
-packages/napcat-*/
+# Keep napcat source code tracked, only exclude binary / build artifacts
+packages/napcat-native/
+packages/napcat-napi-loader/
+packages/napcat-*/node_modules/
+packages/napcat-*/dist/
 *.bak
