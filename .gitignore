@@ -11,4 +11,5 @@ napcat/
 lagrange-bridge/
 *.sig
 qrcode.png
-packages/napcat-*/*.bak
+packages/napcat-*/
+*.bak
