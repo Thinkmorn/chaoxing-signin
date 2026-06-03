@@ -43,5 +43,13 @@ export const getStoredUser = (phone: string): User | null => {
 };
 
 export const getJsonObject = (fileURL: string) => {
-  return JSON.parse(filehandle.readFileSync(path.join(PROJECT_DIR, fileURL), 'utf8'));
+  const fullPath = path.join(PROJECT_DIR, fileURL);
+  try {
+    return JSON.parse(filehandle.readFileSync(fullPath, 'utf8'));
+  } catch {
+    filehandle.mkdirSync(path.dirname(fullPath), { recursive: true });
+    const defaultData = fileURL.endsWith('storage.json') ? { users: [] } : {};
+    filehandle.writeFileSync(fullPath, JSON.stringify(defaultData, null, 2), 'utf8');
+    return defaultData;
+  }
 };

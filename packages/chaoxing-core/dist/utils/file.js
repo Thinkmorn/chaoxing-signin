@@ -42,6 +42,15 @@ const getStoredUser = (phone) => {
 };
 exports.getStoredUser = getStoredUser;
 const getJsonObject = (fileURL) => {
-    return JSON.parse(fs_1.default.readFileSync(path_1.default.join(PROJECT_DIR, fileURL), 'utf8'));
+    const fullPath = path_1.default.join(PROJECT_DIR, fileURL);
+    try {
+        return JSON.parse(fs_1.default.readFileSync(fullPath, 'utf8'));
+    }
+    catch {
+        fs_1.default.mkdirSync(path_1.default.dirname(fullPath), { recursive: true });
+        const defaultData = fileURL.endsWith('storage.json') ? { users: [] } : {};
+        fs_1.default.writeFileSync(fullPath, JSON.stringify(defaultData, null, 2), 'utf8');
+        return defaultData;
+    }
 };
 exports.getJsonObject = getJsonObject;
