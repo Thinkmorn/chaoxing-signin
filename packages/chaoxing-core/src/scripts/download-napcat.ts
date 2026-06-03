@@ -3,7 +3,9 @@ import path from 'path';
 import https from 'https';
 import { execSync } from 'child_process';
 
-const NAPCAT_DIR = path.resolve(__dirname, '../../napcat');
+const BUILD_DIR = path.resolve(__dirname, '..');
+const PROJECT_DIR = path.resolve(BUILD_DIR, '../../..');
+const NAPCAT_DIR = path.resolve(PROJECT_DIR, 'napcat');
 // NapCat Shell 读取 napcat/napcat/config/ 下的 per-QQ 配置文件
 const CONFIG_DIR = path.join(NAPCAT_DIR, 'napcat', 'config');
 const ZIP_NAME = process.platform === 'win32' ? 'NapCat.Shell.Windows.Node.zip' : 'NapCat.Shell.zip';
