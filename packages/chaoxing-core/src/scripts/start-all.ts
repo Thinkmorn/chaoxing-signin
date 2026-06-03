@@ -5,7 +5,7 @@ import net from 'net';
 
 const BUILD_DIR = path.resolve(__dirname, '..');
 const PROJECT_DIR = path.resolve(BUILD_DIR, '../../..');
-const ENV_PATH = path.resolve(BUILD_DIR, 'env.json');
+const ENV_PATH = path.resolve(PROJECT_DIR, 'env.json');
 const STORAGE_PATH = path.resolve(PROJECT_DIR, 'configs/storage.json');
 
 // NapCat 路径

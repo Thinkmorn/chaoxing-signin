@@ -8,9 +8,11 @@ import { decodeQRFromUrl, extractEnc, extractActiveId } from '../utils/qrdecoder
 const execFileAsync = promisify(execFile);
 const WS_URL = 'ws://127.0.0.1:3001';
 const SCRIPT_PATH = path.resolve(__dirname, 'sign-with-enc.js');
-const CACHE_DIR = path.resolve(__dirname, '..');
-const ENV_PATH = path.resolve(CACHE_DIR, 'env.json');
-const STORAGE_PATH = path.resolve(CACHE_DIR, 'configs/storage.json');
+const BUILD_DIR = path.resolve(__dirname, '..');
+const PROJECT_DIR = path.resolve(BUILD_DIR, '../../..');
+const CACHE_DIR = BUILD_DIR;
+const ENV_PATH = path.resolve(PROJECT_DIR, 'env.json');
+const STORAGE_PATH = path.resolve(PROJECT_DIR, 'configs/storage.json');
 
 function getUserDisplayName(userIndex: number): string {
   // 优先从 env.json 读取

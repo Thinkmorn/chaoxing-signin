@@ -9,7 +9,7 @@ const path_1 = __importDefault(require("path"));
 const net_1 = __importDefault(require("net"));
 const BUILD_DIR = path_1.default.resolve(__dirname, '..');
 const PROJECT_DIR = path_1.default.resolve(BUILD_DIR, '../../..');
-const ENV_PATH = path_1.default.resolve(BUILD_DIR, 'env.json');
+const ENV_PATH = path_1.default.resolve(PROJECT_DIR, 'env.json');
 const STORAGE_PATH = path_1.default.resolve(PROJECT_DIR, 'configs/storage.json');
 // NapCat 路径
 const NAPCAT_DIR = path_1.default.resolve(PROJECT_DIR, 'napcat');

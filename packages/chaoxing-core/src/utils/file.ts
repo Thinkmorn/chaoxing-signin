@@ -5,6 +5,10 @@ interface LocalData {
   users: User[];
 }
 
+// 项目根目录：dist/utils/ -> project root
+const BUILD_DIR = path.resolve(__dirname, '..');
+const PROJECT_DIR = path.resolve(BUILD_DIR, '../../..');
+
 /**
  * 储存用户凭证
  */
@@ -24,7 +28,7 @@ export const storeUser = (phone: string, user: User): User[] => {
   if (i === data.users.length) {
     data.users.push(user);
   }
-  filehandle.writeFileSync(path.join(__dirname, '../configs/storage.json'), JSON.stringify(data), 'utf8');
+  filehandle.writeFileSync(path.join(PROJECT_DIR, 'configs/storage.json'), JSON.stringify(data), 'utf8');
   return data.users;
 };
 
@@ -39,5 +43,5 @@ export const getStoredUser = (phone: string): User | null => {
 };
 
 export const getJsonObject = (fileURL: string) => {
-  return JSON.parse(filehandle.readFileSync(path.join(__dirname, '../' + fileURL), 'utf8'));
+  return JSON.parse(filehandle.readFileSync(path.join(PROJECT_DIR, fileURL), 'utf8'));
 };

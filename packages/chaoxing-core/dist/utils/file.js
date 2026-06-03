@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getJsonObject = exports.getStoredUser = exports.storeUser = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+// 项目根目录：dist/utils/ -> project root
+const BUILD_DIR = path_1.default.resolve(__dirname, '..');
+const PROJECT_DIR = path_1.default.resolve(BUILD_DIR, '../../..');
 /**
  * 储存用户凭证
  */
@@ -24,7 +27,7 @@ const storeUser = (phone, user) => {
     if (i === data.users.length) {
         data.users.push(user);
     }
-    fs_1.default.writeFileSync(path_1.default.join(__dirname, '../configs/storage.json'), JSON.stringify(data), 'utf8');
+    fs_1.default.writeFileSync(path_1.default.join(PROJECT_DIR, 'configs/storage.json'), JSON.stringify(data), 'utf8');
     return data.users;
 };
 exports.storeUser = storeUser;
@@ -39,6 +42,6 @@ const getStoredUser = (phone) => {
 };
 exports.getStoredUser = getStoredUser;
 const getJsonObject = (fileURL) => {
-    return JSON.parse(fs_1.default.readFileSync(path_1.default.join(__dirname, '../' + fileURL), 'utf8'));
+    return JSON.parse(fs_1.default.readFileSync(path_1.default.join(PROJECT_DIR, fileURL), 'utf8'));
 };
 exports.getJsonObject = getJsonObject;

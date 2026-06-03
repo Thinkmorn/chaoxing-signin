@@ -3,6 +3,9 @@ import jsdom from 'jsdom';
 import { blue, green, red } from 'kolorist';
 import path from 'path';
 
+// dist/ -> project root
+const PROJECT_DIR = path.resolve(__dirname, '../../..');
+
 function getQrCachePath(userIndex: number) {
   return path.join(__dirname, `temp-qr-cache-${userIndex}.json`);
 }
@@ -158,7 +161,7 @@ async function configure(phone: string) {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  fs.writeFile(path.join(__dirname, './configs/storage.json'), JSON.stringify(data), 'utf8', () => { });
+  fs.writeFile(path.join(PROJECT_DIR, 'configs/storage.json'), JSON.stringify(data), 'utf8', () => { });
 
   return JSON.parse(JSON.stringify({ mailing: config!.mailing, monitor: config!.monitor }));
 }

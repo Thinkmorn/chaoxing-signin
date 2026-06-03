@@ -7,6 +7,8 @@ const fs_1 = __importDefault(require("fs"));
 const jsdom_1 = __importDefault(require("jsdom"));
 const kolorist_1 = require("kolorist");
 const path_1 = __importDefault(require("path"));
+// dist/ -> project root
+const PROJECT_DIR = path_1.default.resolve(__dirname, '../../..');
 function getQrCachePath(userIndex) {
     return path_1.default.join(__dirname, `temp-qr-cache-${userIndex}.json`);
 }
@@ -153,7 +155,7 @@ async function configure(phone) {
         }
     }
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    fs_1.default.writeFile(path_1.default.join(__dirname, './configs/storage.json'), JSON.stringify(data), 'utf8', () => { });
+    fs_1.default.writeFile(path_1.default.join(PROJECT_DIR, 'configs/storage.json'), JSON.stringify(data), 'utf8', () => { });
     return JSON.parse(JSON.stringify({ mailing: config.mailing, monitor: config.monitor }));
 }
 async function Sign(realname, params, config, activity) {

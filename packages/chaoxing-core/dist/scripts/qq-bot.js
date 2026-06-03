@@ -12,9 +12,11 @@ const qrdecoder_1 = require("../utils/qrdecoder");
 const execFileAsync = (0, util_1.promisify)(child_process_1.execFile);
 const WS_URL = 'ws://127.0.0.1:3001';
 const SCRIPT_PATH = path_1.default.resolve(__dirname, 'sign-with-enc.js');
-const CACHE_DIR = path_1.default.resolve(__dirname, '..');
-const ENV_PATH = path_1.default.resolve(CACHE_DIR, 'env.json');
-const STORAGE_PATH = path_1.default.resolve(CACHE_DIR, 'configs/storage.json');
+const BUILD_DIR = path_1.default.resolve(__dirname, '..');
+const PROJECT_DIR = path_1.default.resolve(BUILD_DIR, '../../..');
+const CACHE_DIR = BUILD_DIR;
+const ENV_PATH = path_1.default.resolve(PROJECT_DIR, 'env.json');
+const STORAGE_PATH = path_1.default.resolve(PROJECT_DIR, 'configs/storage.json');
 function getUserDisplayName(userIndex) {
     // 优先从 env.json 读取
     try {
