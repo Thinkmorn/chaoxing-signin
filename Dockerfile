@@ -29,7 +29,6 @@ COPY packages/napcat-image-size/package.json packages/napcat-image-size/
 COPY packages/napcat-qrcode/package.json packages/napcat-qrcode/
 COPY packages/napcat-webui-backend/package.json packages/napcat-webui-backend/
 COPY packages/napcat-vite/package.json packages/napcat-vite/
-COPY packages/napcat-napi-loader/package.json packages/napcat-napi-loader/
 
 # Install dependencies (includes prebuild-install for node-pty)
 RUN pnpm install --frozen-lockfile
